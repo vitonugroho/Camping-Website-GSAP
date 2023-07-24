@@ -1,0 +1,472 @@
+:root {
+  --header-height: 3.5rem;
+  /* Color Mode HSL (Hue, Saturation, Lightness) */
+  --first-color: hsl(195, 100%, 30%);
+  --gradient-color: linear-gradient(
+    90deg,
+    hsl(220, 55%, 20%),
+    hsl(192, 62%, 25%)
+  );
+  --title-color: hsl(210, 55%, 20%);
+  --text-color: hsl(219, 24%, 15%);
+  --white-color: #fff;
+  --body-color: hsl(210, 55%, 85%);
+  /* Font & Typography */
+  --body-font: "Lora", sans-serif;
+  --second-font: "Poppins", sans-serif;
+  --biggest-font-size: 2.25rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  /* Font Weight */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  /* Z-Index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Responsive Typography */
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+  }
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reusable CSS Classes */
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.header {
+  overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--body-color);
+  z-index: var(--z-fixed);
+}
+
+.nav-link,
+.nav-button-ghost,
+.nav-button-link {
+  font-family: var(--second-font);
+}
+
+.navbar-box {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 36px;
+}
+
+.toggle,
+.close-button {
+  display: inline-flex;
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+/* End of Navbar */
+
+/* Header */
+.header {
+  position: relative;
+}
+
+.header-container {
+  padding-top: 8rem;
+  height: 100vh;
+}
+
+.header-box {
+  position: relative;
+  z-index: 2;
+}
+
+.home-data {
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.home-subtitle {
+  font-family: var(--second-font);
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+  letter-spacing: 3px;
+}
+
+.home-title {
+  font-size: var(--biggest-font-size);
+  font-family: var(--second-fonts);
+  color: var(--title-color);
+}
+
+.home-description {
+  font-family: var(--second-font);
+  margin-bottom: 2.5rem;
+}
+
+.home-button {
+  font-family: var(--second-font);
+  display: inline-block;
+  background: var(--gradient-color);
+  color: var(--white-color);
+  width: max-content;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  -ms-border-radius: 0.75rem;
+  -o-border-radius: 0.75rem;
+  box-shadow: 0 24px 32px hsla(210, 55%, 24%, 0.3);
+}
+
+.home-bird-1,
+.home-bird-2 {
+  position: absolute;
+  width: 60px;
+}
+
+.home-bird-1 {
+  bottom: -6rem;
+  rotate: -30deg;
+}
+
+.home-bird-2 {
+  top: 4.5rem;
+  right: 0;
+  rotate: -15deg;
+}
+
+.home-images {
+  z-index: 1;
+}
+
+.home-images img {
+  position: absolute;
+  max-width: initial;
+  width: 600px;
+  left: -7rem;
+  bottom: 0;
+}
+/* End of Header */
+
+/* Navigation for Mobile Devices */
+@media screen and (max-width: 1023px) {
+  .menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: var(--body-color);
+    width: 100%;
+    box-shadow: 0 1px 16px hsla(210, 55%, 24%, 0.1);
+    padding-block: 3.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    transition: top 0.4s;
+    -webkit-transition: top 0.4s;
+    -moz-transition: top 0.4s;
+    -ms-transition: top 0.4s;
+    -o-transition: top 0.4s;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 2rem;
+  }
+
+  .nav-link {
+    color: var(--title-color);
+    transition: color 0.3s;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    -ms-transition: color 0.3s;
+    -o-transition: color 0.3s;
+  }
+
+  .nav-link:hover {
+    color: var(--first-color);
+  }
+
+  .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.75rem;
+  }
+
+  .nav-button-link,
+  .nav-button-ghost {
+    display: inline-block;
+    color: var(--title-color);
+  }
+
+  .nav-button-ghost {
+    background-color: hsla(0, 0%, 100%, 0.3);
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--title-color);
+    border-radius: 0.75rem;
+    -webkit-border-radius: 0.75rem;
+    -moz-border-radius: 0.75rem;
+    -ms-border-radius: 0.75rem;
+    -o-border-radius: 0.75rem;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+  }
+
+  /* DOM Event */
+  .show-menu {
+    top: 0;
+  }
+
+  .bg-navbar {
+    box-shadow: 0 1px 16px hsla(210, 55%, 24%, 0.12);
+  }
+}
+
+/* Breakpoints */
+/* Small Devices Max Width: 305px */
+@media screen and (max-width: 305px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .home-title {
+    font-size: 2rem;
+  }
+
+  .home-bird-1,
+  .home-bird-2 {
+    width: 40px;
+  }
+
+  .home-bird-1 {
+    top: 19rem;
+  }
+
+  .home-bird-2 {
+    top: 0;
+  }
+}
+/* Taller Devices Min Width: 376px and Max Width: 800px */
+@media screen and (min-width: 376px) and (min-height: 800px) {
+  .header-container {
+    padding-top: 10rem;
+  }
+
+  .home-images img {
+    width: 700px;
+    left: -12rem;
+  }
+}
+/* Medium Devices Max-Width: 480px */
+@media screen and (min-width: 480px) {
+  .header-box {
+    max-width: 305px;
+  }
+
+  .home-bird-2 {
+    top: 0;
+    right: -5rem;
+  }
+
+  .home-images img {
+    width: initial;
+    left: 0;
+  }
+}
+
+/* Large Devices Min-Width: 1023px */
+@media screen and (min-width: 1023px) {
+  /* Navbar */
+  .navbar-box {
+    height: calc(var(--header-height) + 2rem);
+    column-gap: 4rem;
+  }
+
+  .logo {
+    width: 48px;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 5rem;
+  }
+
+  .nav-button-link,
+  .nav-button-ghost {
+    display: inline-block;
+    color: var(--title-color);
+  }
+
+  .nav-button-ghost {
+    background-color: hsla(0, 0%, 100%, 0.3);
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--title-color);
+    border-radius: 0.75rem;
+    -webkit-border-radius: 0.75rem;
+    -moz-border-radius: 0.75rem;
+    -ms-border-radius: 0.75rem;
+    -o-border-radius: 0.75rem;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .close-button,
+  .toggle {
+    display: none;
+  }
+  /* End of Navbar */
+  /* Header */
+  .header-box {
+    max-width: 550px;
+  }
+
+  .home-data {
+    row-gap: 1rem;
+  }
+
+  .home-subtitle {
+    font-size: var(--normal-font-size);
+  }
+
+  .home-description {
+    margin-bottom: 3rem;
+  }
+
+  .home-bird-2 {
+    top: 0;
+    right: -5rem;
+  }
+  /* End of Header */
+}
+/* Large Devices Min-Width: 1120px */
+@media screen and (min-width: 1120px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .home-bird-2 {
+    top: 0;
+    right: -5rem;
+  }
+}
+
+/* Large Devices Min-Width: 1300px */
+@media screen and (min-width: 1300px) {
+  .header-container {
+    padding-top: 10rem;
+  }
+
+  .home-bird-1,
+  .home-bird-2 {
+    width: 80px;
+  }
+
+  .home-bird-1 {
+    bottom: -7rem;
+    left: -5rem;
+  }
+
+  .home-bird-2 {
+    top: 0;
+    right: -5rem;
+  }
+
+  .home-images img {
+    bottom: -9rem;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    background-color: hsl(220, 24%, 15%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    background-color: hsl(220, 24%, 25%);
+  }
+}
+/* Large Devices Min-Width: 2048px */
+@media screen and (min-width: 2048px) {
+  .container {
+    max-width: 1300px;
+  }
+
+  .header-container {
+    height: 1200px;
+    padding-top: 15rem;
+  }
+}
